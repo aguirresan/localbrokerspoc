@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+    brokers:
+        image: localstack/localstack:3.0.1
+        restart: no
+        ports:
+            - '4566:4566'
+            - '4510-4559:4510-4559'
+        volumes:
+            - ./tools/brokers/create-infra.sh:/etc/localstack/init/ready.d/create-infra.sh

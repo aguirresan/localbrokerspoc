@@ -1,0 +1,12 @@
+{
+  "name": "localbrokerspoc",
+  "version": "1.0.0",
+  "description": "PoC for a AWS-based Broker and NestJS producer and consumer",
+  "author": "Santiago Aguirre & Luca Becker",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "consumer",
+    "producer"
+  ]
+}
