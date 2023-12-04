@@ -10,7 +10,7 @@ const sqsClient = new SQSClient({
 
 const app = Consumer.create({
   queueUrl:
-    'http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/field-deleted-queue',
+    'http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/field-events-queue',
   pollingWaitTimeMs: 1000,
   handleMessage(message: Message): Promise<Message | void> {
     return new Promise(() => {
