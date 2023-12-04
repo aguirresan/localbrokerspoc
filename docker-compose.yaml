@@ -8,3 +8,4 @@ services:
             - '4510-4559:4510-4559'
         volumes:
             - ./tools/brokers/create-infra.sh:/etc/localstack/init/ready.d/create-infra.sh
+            - ./tools/brokers/eventpattern.json:/etc/localstack/init/ready.d/eventpattern.json

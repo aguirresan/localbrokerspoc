@@ -2,10 +2,15 @@
 
 alias awslocal='aws --endpoint-url http://localhost:4566'
 
-topicArn=$(awslocal sns create-topic --name field-deleted-topic --output text --query 'TopicArn')
-queueUrl=$(awslocal sqs create-queue --queue-name field-deleted-queue --output text --query 'QueueUrl')
-queueArn=$(awslocal sqs get-queue-attributes --queue-url $queueUrl --attribute-names 'QueueArn' --output text --query 'Attributes.QueueArn')
-echo "topicArn: $topicArn"
-echo "queueUrl: $queueUrl"
+eventBusName="yara-eu-events-bus"
+awslocal events create-event-bus --name $eventBusName
 
-awslocal sns subscribe --topic-arn $topicArn --protocol sqs --notification-endpoint $queueArn
+queueName="field-events-queue"
+queueUrl=$(awslocal sqs create-queue --queue-name $queueName --output text --query 'QueueUrl')
+queueArn=$(awslocal sqs get-queue-attributes --queue-url $queueUrl --attribute-names 'QueueArn' --output text --query 'Attributes.QueueArn')
+
+ruleName="field-updates-rule"
+awslocal events put-rule --event-bus-name $eventBusName --name $ruleName --event-pattern file:///etc/localstack/init/ready.d/eventpattern.json
+
+awslocal events put-targets --event-bus-name $eventBusName --rule $ruleName --targets "Id"="1","Arn"="$queueArn"
+
