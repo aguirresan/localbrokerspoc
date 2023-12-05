@@ -1,4 +1,4 @@
 export class FieldEventsDto {
-  detail: any & { event: string };
+  detail: Record<string, unknown> & { event: string };
   detailType: 'field-events';
 }
