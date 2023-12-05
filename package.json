@@ -6,7 +6,8 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "consumer",
+    "delete-fields-consumer",
+    "create-fields-consumer",
     "producer"
   ]
 }
