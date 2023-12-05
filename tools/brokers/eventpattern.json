@@ -1,1 +1,0 @@
-{"source": ["yara-eu-producer"],"detail-type": ["field-events"],"detail": {"event": ["create-field", "delete-field"]}}
