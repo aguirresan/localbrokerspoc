@@ -3,11 +3,11 @@
     "yara-eu-producer"
   ],
   "detail-type": [
-    "field-events"
+    "YaraEuEvent"
   ],
   "detail": {
-    "event": [
-      "create-field"
+    "eventName": [
+      "CreateGrowingPeriodV1"
     ]
   }
 }
