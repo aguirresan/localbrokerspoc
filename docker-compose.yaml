@@ -9,4 +9,3 @@ services:
         volumes:
             - ./tools/brokers/create-infra.sh:/etc/localstack/init/ready.d/create-infra.sh
             - ./tools/brokers/field-created-pattern.json:/etc/localstack/init/ready.d/field-created-pattern.json
-            - ./tools/brokers/field-deleted-pattern.json:/etc/localstack/init/ready.d/field-deleted-pattern.json
